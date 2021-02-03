@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float maxspeed;
     public float bulletSpeed = 5f;
     public GameObject Bullet;
+    public Text wintext;
 
     private Rigidbody rb;
 
@@ -29,6 +30,19 @@ public class PlayerController : MonoBehaviour
         if (col.CompareTag("ground"))
         {
             grounded = true;
+        }
+        if (col.CompareTag("ebullet"))
+        {
+            TakeDamage(10);
+        }
+        if (col.CompareTag("enemy"))
+        {
+            TakeDamage(20);
+        }
+        if (col.CompareTag("win"))
+        {
+            gameObject.SetActive(false);
+            wintext.text = "You win!";
         }
 
     }
@@ -56,14 +70,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector3(-7.5f, rb.velocity.y, rb.velocity.z);
         }
 
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TakeDamage(20);
-        }
 
         if (currentHealth <= 0)
         {
-            Destroy(gameObject);
+            this.gameObject.SetActive(false);
+            wintext.text = "Game Over";
         }
 
     }

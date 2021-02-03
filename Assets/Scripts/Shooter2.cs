@@ -22,7 +22,7 @@ public class Shooter2 : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.J) && cooldowntimer >= cooldown)
         {
             clone = (GameObject)Instantiate(Bullet, transform.position, Quaternion.identity);
-            clone.GetComponent<Rigidbody>().velocity = new Vector3(-35, 0);
+            clone.GetComponent<Rigidbody>().velocity = new Vector3(-20, 0);
             cooldowntimer = 0;
         }
     }
