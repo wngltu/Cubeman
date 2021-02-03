@@ -33,11 +33,11 @@ public class PlayerController : MonoBehaviour
         }
         if (col.CompareTag("ebullet"))
         {
-            TakeDamage(10);
+            TakeDamage(5);
         }
         if (col.CompareTag("enemy"))
         {
-            TakeDamage(20);
+            TakeDamage(10);
         }
         if (col.CompareTag("win"))
         {
